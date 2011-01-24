@@ -1,0 +1,29 @@
+GEM
+  remote: http://rubygems.org/
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.2.3)
+    haml (3.0.25)
+    instagram (0.3.1)
+      addressable
+      nibbler (>= 1.2.0)
+      yajl-ruby
+    json (1.5.0)
+    nibbler (1.2.1)
+    rack (1.2.1)
+    sass (3.1.0.alpha.218)
+    sinatra (1.1.2)
+      rack (~> 1.1)
+      tilt (~> 1.2)
+    tilt (1.2.2)
+    yajl-ruby (0.7.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml
+  instagram
+  json
+  sass
+  sinatra
