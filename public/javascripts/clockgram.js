@@ -5,22 +5,18 @@ $(function(){
   
 })
 
-var update = function(){
+var update = function(n){
   
-  var content = $('#photo');
-  
-  content.fadeOut(1000, function(){
-    $.getJSON('/photo', function(data){
-      var photo  = '<img class="photo" src="'+data.url+'"/>';
-          photo += '<h1 class="author">'+data.author+'</h1>';
-          photo += '<p class="username">'+data.username+'</p>';
-          photo += '<p class="taken">'+data.taken+'</h1>';
-      content.html(photo);
-      content.fadeIn(1000);
-      
-    })
+  $.getJSON('/photo', function(data){
+    $('#photo'+n).html($('#preload').html()).fadeIn(1000);
+    $('#preload').html('<img class="photo" src="'+data.url+'"/>');
+    if(n != 5){
+      $('#photo'+(n+1)).html('').show();
+    }
+    else{
+      $('#photo0').html('').show();
+    }
   });
-  
 }
 
 var time = function(){
@@ -30,8 +26,14 @@ var time = function(){
   var minutes = now.getMinutes();
   var seconds = now.getSeconds();
   
+  if(seconds%10 != 0){
+    $('#photo'+Math.floor(seconds/10)).show().append('<div class="second-box"></div>');
+  }
   if(seconds%10 == 0){
-    update();
+    update(seconds/10);
+    if(seconds == 0){
+      $('#photos').children().hide().html('');
+    }
   }
   if(minutes == 0 && seconds == 0){
     $('#hours').html(normalizeTime(hours));

@@ -38,31 +38,48 @@
 body
   font-family:  Helvetica, Arial, sans-serif
   background: #000
-  
-  
-    
   #content
-    width: 700px
+    width: 900px
     margin: 100px auto 10px
     #time
+      float: left
       color: #FFF
-      font-size: 40px
+      font-size: 180px
       font-family: Helvetica
       letter-spacing: -0.05em
       margin-bottom: 10px
-    .photo
-      border: 10px solid #FFF
-    .author
-      margin-top: 10px
-      font-family: Helvetica
-      font-size: 40px
-      letter-spacing: -0.05em
-      opacity: 50
-      color: #FFF
-    .taken
-      font-family: Monaco
-      font-size: 15px
-      color: #FFF
+      margin-right: 80px
+      p
+        margin: 0
+        padding: 0
+        line-height: 1
+      #hours
+        border-bottom: 3px solid white
+      #minutes
+        padding-top: 20px
+    #photos
+      width: 600px
+      overflow: hidden
+      > div
+        padding: 0
+        width: 170px
+        height: 170px
+        overflow: hidden
+      .second-box
+        padding: 0
+        width: 40px
+        height: 40px
+        margin: 3px
+        background: white
+        float: left
+        @include round-corners(3px)
+        
+    #photo0, #photo1, #photo2, #photo3, #photo4, #photo5
+      float: left
+      margin: 10px
+  #preload
+    position: absolute
+    left: -3000px
   
       
     
