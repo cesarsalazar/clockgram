@@ -6,9 +6,8 @@ $(function(){
 })
 
 var update = function(n){
-  
+  $('#photo'+(n-1)).html($('#preload').html()).show();
   $.getJSON('/photo', function(data){
-    $('#photo'+n).html($('#preload').html()).fadeIn(1000);
     $('#preload').html('<img class="photo" src="'+data.url+'"/>');
     if(n != 5){
       $('#photo'+(n+1)).html('').show();
